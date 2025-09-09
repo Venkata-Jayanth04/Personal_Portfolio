@@ -10,7 +10,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
 // Global CSS
-import "./css/global.css";
+import "./css/Global.css";
 
 export default function App() {
   const location = useLocation();
@@ -40,3 +40,4 @@ export default function App() {
     </div>
   );
 }
+
