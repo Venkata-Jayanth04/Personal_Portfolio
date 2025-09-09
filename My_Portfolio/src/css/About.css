@@ -1,0 +1,113 @@
+/* Profile image wrapper */
+.portrait-wrap {
+  width: 320px;              /* set the box width */
+  height: 380px;             /* set the box height */
+  border-radius: 20px;
+  overflow: hidden;          /* crops overflow from image */
+  border: 1px solid var(--glass-stroke);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  background: var(--card);   /* fallback background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* makes image fill box neatly */
+}
+
+/* Skills Section */
+.skills-card {
+  background: linear-gradient(180deg, rgba(18,30,58,0.65), rgba(10,22,48,0.45));
+  border: 1px solid var(--glass-stroke);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.skills-card h3 {
+  margin-top: 0;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* max 4 per row */
+  gap: 35px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.skill-cube {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(45,87,170,0.35), rgba(25,56,116,0.35));
+  border: 1px solid var(--glass-stroke);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06),
+              0 10px 22px rgba(15,60,140,0.25);
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.skill-cube:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.skill-cube img {
+  width: 48px;
+  height: 48px;
+  opacity: 0.95;
+}
+
+/* Label appears only on hover */
+.skill-label {
+  position: absolute;
+  bottom: -28px;
+  font-size: 14px;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.skill-cube:hover .skill-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* About layout */
+.about-top {
+  display: grid;
+  gap: 30px;
+  align-items: start; /* text aligns top */
+  margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .about-top {
+    grid-template-columns: 1fr 1.5fr; /* image left, text right */
+  }
+
+  .about-top .portrait-wrap {
+    justify-self: center;
+  }
+
+  .about-top .about-card {
+    align-self: start; /* text stays aligned to top of image */
+  }
+}
+
+/* About text box */
+.about-card {
+  background: linear-gradient(180deg, rgba(18,30,58,0.55), rgba(10,22,48,0.35));
+  border: 1px solid var(--glass-stroke);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
